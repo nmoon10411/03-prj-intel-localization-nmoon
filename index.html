@@ -31,7 +31,6 @@
   <!-- Timeline -->
   <section class="container-fluid px-4 mb-5" aria-label="Intel timeline">
     <div class="timeline d-flex flex-row gap-3 overflow-auto" id="timeline">
-      <!-- Timeline Cards -->
       <div class="card shadow-sm border-0"><img src="img/1.jpg"><div class="card-body"><h5 class="card-title text-primary fw-bold">1968 — Intel Founded</h5><p class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.</p></div></div>
       <div class="card shadow-sm border-0"><img src="img/2.jpg"><div class="card-body"><h5 class="card-title text-primary fw-bold">1971 — First Microprocessor</h5><p class="card-text">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.</p></div></div>
       <div class="card shadow-sm border-0"><img src="img/3.jpg"><div class="card-body"><h5 class="card-title text-primary fw-bold">1978 — 8086 Processor</h5><p class="card-text">Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.</p></div></div>
@@ -128,6 +127,11 @@
         cards.forEach(card => timeline.appendChild(card));
         timeline.scrollLeft = 0; // Start on left
       }
+
+      // Align text automatically
+      timeline.querySelectorAll('.card-body').forEach(body => {
+        body.style.textAlign = dir === 'rtl' ? 'right' : 'left';
+      });
     }
 
     const savedDir = localStorage.getItem('dir');
