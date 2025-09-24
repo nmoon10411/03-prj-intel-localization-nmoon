@@ -193,9 +193,27 @@
   }
 
   if (timeline) {
+    // Get all cards
+    const cards = Array.from(timeline.children);
+
+    // Reverse card order for RTL
+    timeline.innerHTML = "";
+    if (dir === 'rtl') {
+      cards.reverse().forEach(c => timeline.appendChild(c));
+    } else {
+      cards.forEach(c => timeline.appendChild(c));
+    }
+
+    // Keep horizontal scroll working
+    timeline.style.display = "flex";
+    timeline.style.overflowX = "auto";
+    timeline.style.flexWrap = "nowrap";
+
+    // Set starting scroll position
     requestAnimationFrame(() => {
-      timeline.style.justifyContent = dir === 'rtl' ? 'flex-end' : 'flex-start';
-      timeline.scrollLeft = dir === 'rtl' ? timeline.scrollWidth * -1 : 0;
+      timeline.scrollLeft = dir === 'rtl'
+        ? timeline.scrollWidth
+        : 0;
     });
   }
 }
