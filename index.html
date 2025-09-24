@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Timeline horizontal scroll, preserving original card/img sizes */
+    /* Timeline horizontal scroll, keeping original sizes */
     .timeline-scroll {
       display: flex;
       flex-wrap: nowrap;
@@ -22,17 +22,28 @@
       flex: 0 0 auto;
       scroll-snap-align: start;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* Keep width consistent with your original columns */
-      width: 330px;  /* adjust to match your original card width */
+      width: 330px; /* original card width */
     }
     .timeline-scroll .card img {
-      /* match your original image height / width behavior */
       object-fit: cover;
-      height: 180px;  /* adjust to your original img height */
+      height: 180px; /* original image height */
     }
     .timeline-scroll .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RTL fixes */
+    [dir="rtl"] body {
+      direction: rtl;
+    }
+    [dir="rtl"] h1, 
+    [dir="rtl"] h2, 
+    [dir="rtl"] h5, 
+    [dir="rtl"] p, 
+    [dir="rtl"] label, 
+    [dir="rtl"] .card-body {
+      text-align: right;
     }
   </style>
 </head>
@@ -51,7 +62,6 @@
 <!-- Timeline Section with scrollable cards -->
 <section class="container my-5">
   <div class="timeline-scroll">
-    <!-- Card 1 -->
     <div class="card shadow-sm border-0">
       <img src="img/1.jpg" class="card-img-top img-fluid" alt="Intel Founded">
       <div class="card-body">
@@ -59,7 +69,6 @@
         <p class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.</p>
       </div>
     </div>
-    <!-- Card 2 -->
     <div class="card shadow-sm border-0">
       <img src="img/2.jpg" class="card-img-top img-fluid" alt="Intel 4004 Microprocessor">
       <div class="card-body">
@@ -67,7 +76,6 @@
         <p class="card-text">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.</p>
       </div>
     </div>
-    <!-- Card 3 -->
     <div class="card shadow-sm border-0">
       <img src="img/3.jpg" class="card-img-top img-fluid" alt="Intel 8086 Processor">
       <div class="card-body">
@@ -75,7 +83,6 @@
         <p class="card-text">Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.</p>
       </div>
     </div>
-    <!-- Card 4 -->
     <div class="card shadow-sm border-0">
       <img src="img/4.jpg" class="card-img-top img-fluid" alt="Intel 386 Processor">
       <div class="card-body">
@@ -83,35 +90,30 @@
         <p class="card-text">Intel introduces the 386 processor with 32-bit architecture, enabling advanced computing power.</p>
       </div>
     </div>
-    <!-- Card 5 -->
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h5 class="card-title text-primary fw-bold">2006 - Peak GHG Emissions</h5>
         <p class="card-text">Intel reaches peak greenhouse gas emissions before committing to major environmental initiatives.</p>
       </div>
     </div>
-    <!-- Card 6 -->
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h5 class="card-title text-primary fw-bold">2020 - RISE Strategy</h5>
         <p class="card-text">Intel launches its RISE strategy, focusing on responsibility, inclusivity, and sustainability.</p>
       </div>
     </div>
-    <!-- Card 7 -->
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h5 class="card-title text-primary fw-bold">2022 - Net-Zero 2040</h5>
         <p class="card-text">Intel commits to achieving net-zero greenhouse gas emissions across operations by 2040.</p>
       </div>
     </div>
-    <!-- Card 8 -->
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h5 class="card-title text-primary fw-bold">2023 - 99% Renewable Energy</h5>
         <p class="card-text">Intel achieves 99% renewable electricity usage globally, pushing sustainability forward.</p>
       </div>
     </div>
-    <!-- Card 9 -->
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h5 class="card-title text-primary fw-bold">2024 - Sustainability Summit</h5>
@@ -174,10 +176,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // RTL toggle: now switches both layout & text direction
   function toggleRTL() {
     const html = document.documentElement;
     html.setAttribute('dir', html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
   }
+
+  // Bootstrap form validation
   (() => {
     'use strict'
     const forms = document.querySelectorAll('.needs-validation')
