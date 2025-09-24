@@ -123,3 +123,25 @@ footer {
     color: black;
   }
 }
+
+
+.timeline-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+.timeline-scroll .card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-scroll .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
