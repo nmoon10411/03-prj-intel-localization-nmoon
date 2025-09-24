@@ -1,209 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intel Sustainability Journey</title>
+  <!-- Bootstrap CSS & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Timeline horizontal scroll, keeping original sizes */
-    .timeline-scroll {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem;
-      padding-bottom: 10px;
-    }
-    .timeline-scroll .card {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      width: 330px; /* original card width */
-    }
-    .timeline-scroll .card img {
-      object-fit: cover;
-      height: 180px; /* original image height */
-    }
-    .timeline-scroll .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* RTL fixes */
-    [dir="rtl"] body {
-      direction: rtl;
-    }
-    [dir="rtl"] h1, 
-    [dir="rtl"] h2, 
-    [dir="rtl"] h5, 
-    [dir="rtl"] p, 
-    [dir="rtl"] label, 
-    [dir="rtl"] .card-body {
-      text-align: right;
-    }
-  </style>
 </head>
 <body>
 
+<!-- Header Section -->
 <header class="bg-primary text-white text-center p-4">
   <img src="img/intel-header-logo.svg" alt="Intel Logo" class="img-fluid mb-3" style="max-width: 120px;">
-  <h1 class="fw-bold">Sustainability Through the Ages</h1>
-  <p class="mb-0">Explore Intel's journey towards a greener future with innovation and responsibility.</p>
+  <h1 id="title" class="fw-bold">Sustainability Through the Ages</h1>
+  <p id="subtitle" class="mb-0">Explore Intel's journey towards a greener future with innovation and responsibility.</p>
 </header>
 
+<!-- RTL Toggle Button -->
 <div class="text-center my-3">
   <button onclick="toggleRTL()" class="btn btn-outline-primary btn-sm">Toggle RTL/LTR</button>
 </div>
 
-<!-- Timeline Section with scrollable cards -->
-<section class="container my-5">
-  <div class="timeline-scroll">
-    <div class="card shadow-sm border-0">
-      <img src="img/1.jpg" class="card-img-top img-fluid" alt="Intel Founded">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">1968 - Intel Founded</h5>
-        <p class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <img src="img/2.jpg" class="card-img-top img-fluid" alt="Intel 4004 Microprocessor">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">1971 - First Microprocessor</h5>
-        <p class="card-text">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <img src="img/3.jpg" class="card-img-top img-fluid" alt="Intel 8086 Processor">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">1978 - 8086 Processor</h5>
-        <p class="card-text">Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <img src="img/4.jpg" class="card-img-top img-fluid" alt="Intel 386 Processor">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">1985 - 386 Processor</h5>
-        <p class="card-text">Intel introduces the 386 processor with 32-bit architecture, enabling advanced computing power.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">2006 - Peak GHG Emissions</h5>
-        <p class="card-text">Intel reaches peak greenhouse gas emissions before committing to major environmental initiatives.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">2020 - RISE Strategy</h5>
-        <p class="card-text">Intel launches its RISE strategy, focusing on responsibility, inclusivity, and sustainability.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">2022 - Net-Zero 2040</h5>
-        <p class="card-text">Intel commits to achieving net-zero greenhouse gas emissions across operations by 2040.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">2023 - 99% Renewable Energy</h5>
-        <p class="card-text">Intel achieves 99% renewable electricity usage globally, pushing sustainability forward.</p>
-      </div>
-    </div>
-    <div class="card shadow-sm border-0">
-      <div class="card-body">
-        <h5 class="card-title text-primary fw-bold">2024 - Sustainability Summit</h5>
-        <p class="card-text">Intel hosts its first Sustainability Summit, uniting leaders to discuss future innovations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- Timeline Section -->
 <section class="container my-5">
   <div class="row g-4">
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-bar-chart-line me-2"></i>Global Impact</h2>
-        <p>Intel drives positive change worldwide, from renewable energy to sustainable manufacturing.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/1.jpg" class="card-img-top img-fluid" alt="Intel Founded">
+        <div class="card-body">
+          <h5 id="card1-title" class="card-title text-primary fw-bold">1968 - Intel Founded</h5>
+          <p id="card1-text" class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.</p>
+        </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-people-fill me-2"></i>Inclusive Teams</h2>
-        <p>Intel builds inclusive, diverse workplaces to innovate with empathy and responsibility.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/2.jpg" class="card-img-top img-fluid" alt="Intel 4004 Microprocessor">
+        <div class="card-body">
+          <h5 id="card2-title" class="card-title text-primary fw-bold">1971 - First Microprocessor</h5>
+          <p id="card2-text" class="card-text">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.</p>
+        </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h2>
-        <p>Intel pioneers next-gen technology while maintaining strong environmental commitments.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/3.jpg" class="card-img-top img-fluid" alt="Intel 8086 Processor">
+        <div class="card-body">
+          <h5 id="card3-title" class="card-title text-primary fw-bold">1978 - 8086 Processor</h5>
+          <p id="card3-text" class="card-text">Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-light py-5">
-  <div class="container">
-    <h2 class="text-center mb-4 text-primary fw-bold">
-      <i class="bi bi-envelope me-2"></i>Subscribe to our Sustainability Newsletter
-    </h2>
-    <form class="needs-validation mx-auto" style="max-width: 500px;" novalidate>
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-        <div class="invalid-feedback">Please enter your name.</div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
-        <div class="invalid-feedback">Please enter a valid email address.</div>
-      </div>
-      <button class="btn btn-primary w-100" type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
-
+<!-- Footer -->
 <footer class="bg-primary text-white text-center py-3 mt-5">
   <p class="mb-0">&copy; 2025 Intel Corporation. All rights reserved.</p>
 </footer>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // RTL toggle: manual
+  const translations = {
+    en: {
+      title: "Sustainability Through the Ages",
+      subtitle: "Explore Intel's journey towards a greener future with innovation and responsibility.",
+      card1Title: "1968 - Intel Founded",
+      card1Text: "Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.",
+      card2Title: "1971 - First Microprocessor",
+      card2Text: "Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.",
+      card3Title: "1978 - 8086 Processor",
+      card3Text: "Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers."
+    },
+    ar: {
+      title: "الاستدامة عبر العصور",
+      subtitle: "استكشف رحلة إنتل نحو مستقبل أكثر خضرة من خلال الابتكار والمسؤولية.",
+      card1Title: "1968 - تأسست إنتل",
+      card1Text: "قام روبرت نويس وجوردون مور بإعادة تسمية شركة NM Electronics إلى إنتل، مما بدأ عقودًا من الابتكار.",
+      card2Title: "1971 - أول معالج دقيق",
+      card2Text: "تطلق إنتل المعالج 4004، أول معالج دقيق تجاري في العالم، مما أشعل ثورة المعالجات الدقيقة.",
+      card3Title: "1978 - معالج 8086",
+      card3Text: "إطلاق معالج 8086، الذي أسس بنية x86 التي تشغل أجهزة الكمبيوتر الحديثة والخوادم."
+    }
+  };
+
+  let currentLang = "en";
+
   function toggleRTL() {
     const html = document.documentElement;
-    html.setAttribute('dir', html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
+    currentLang = currentLang === "en" ? "ar" : "en";
+    html.setAttribute("dir", currentLang === "ar" ? "rtl" : "ltr");
+    updateText();
   }
 
-  // Auto-detect language for RTL
-  const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
-  const pageLang = document.documentElement.lang || navigator.language.slice(0, 2);
-  if (rtlLanguages.includes(pageLang)) {
-    document.documentElement.setAttribute('dir', 'rtl');
+  function updateText() {
+    const t = translations[currentLang];
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("subtitle").textContent = t.subtitle;
+    document.getElementById("card1-title").textContent = t.card1Title;
+    document.getElementById("card1-text").textContent = t.card1Text;
+    document.getElementById("card2-title").textContent = t.card2Title;
+    document.getElementById("card2-text").textContent = t.card2Text;
+    document.getElementById("card3-title").textContent = t.card3Title;
+    document.getElementById("card3-text").textContent = t.card3Text;
   }
-
-  // Bootstrap form validation
-  (() => {
-    'use strict'
-    const forms = document.querySelectorAll('.needs-validation')
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
 </script>
+
+<style>
+  [dir="rtl"] .card-body,
+  [dir="rtl"] h2,
+  [dir="rtl"] h5,
+  [dir="rtl"] p {
+    text-align: right;
+  }
+</style>
 
 </body>
 </html>
