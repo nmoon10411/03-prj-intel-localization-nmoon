@@ -194,13 +194,12 @@
 
   if (timeline) {
     requestAnimationFrame(() => {
-      timeline.scrollTo({
-        left: dir === 'rtl' ? timeline.scrollWidth : 0,
-        behavior: 'auto'
-      });
+      timeline.style.justifyContent = dir === 'rtl' ? 'flex-end' : 'flex-start';
+      timeline.scrollLeft = dir === 'rtl' ? timeline.scrollWidth * -1 : 0;
     });
   }
 }
+
 
     // Decide direction on load: prefer lang attr; fallback to browser; then content sniff
     function autoDetectAndApplyDir() {
