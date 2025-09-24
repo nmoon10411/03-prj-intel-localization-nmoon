@@ -1,141 +1,230 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intel Sustainability Journey</title>
 
-  <!-- Bootstrap CSS with dynamic RTL/LTR switching -->
-  <link id="bootstrap-css" 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet">
+  <!-- Bootstrap (swapped to RTL automatically by script) -->
+  <link id="bootstrap-css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" />
 
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Your Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Icons + your styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Header Section -->
-<header class="bg-primary text-white text-center p-4">
-  <img src="img/intel-header-logo.svg" alt="Intel Logo" class="img-fluid mb-3" style="max-width: 120px;">
-  <h1 class="fw-bold">Sustainability Through the Ages</h1>
-  <p class="mb-0">Explore Intel's journey towards a greener future with innovation and responsibility.</p>
-</header>
+  <!-- Header -->
+  <header class="bg-primary text-white text-center p-4" role="banner">
+    <img src="img/intel-header-logo.svg" alt="Intel logo" class="img-fluid mb-3" style="max-width:120px" />
+    <h1 class="fw-bold mb-2">Sustainability Through the Ages</h1>
+    <p class="mb-0">
+      Explore Intel's journey towards a greener future with innovation and responsibility.
+    </p>
+  </header>
 
-<!-- Timeline Section -->
-<section class="container my-5">
-  <div class="row g-4">
-    <!-- Card 1 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0">
-        <img src="img/1.jpg" class="card-img-top img-fluid" alt="Intel Founded">
+  <!-- Small helper to test RTL manually (kept for you) -->
+  <div class="text-center my-3">
+    <button id="toggle-rtl" class="btn btn-outline-primary btn-sm">Toggle RTL/LTR</button>
+  </div>
+
+  <!-- Timeline (horizontal scroll) -->
+  <section class="container-fluid px-4 mb-5" aria-label="Intel timeline">
+    <div class="timeline" id="timeline">
+      <!-- 1968 -->
+      <div class="card shadow-sm border-0">
+        <img src="img/1.jpg" alt="Intel founders, 1968" />
         <div class="card-body">
-          <h5 class="card-title text-primary fw-bold">1968 - Intel Founded</h5>
-          <p class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.</p>
+          <h5 class="card-title text-primary fw-bold">1968 — Intel Founded</h5>
+          <p class="card-text">
+            Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation, starting decades of innovation.
+          </p>
+        </div>
+      </div>
+      <!-- 1971 -->
+      <div class="card shadow-sm border-0">
+        <img src="img/2.jpg" alt="Intel 4004 Microprocessor, 1971" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">1971 — First Microprocessor</h5>
+          <p class="card-text">
+            Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.
+          </p>
+        </div>
+      </div>
+      <!-- 1978 -->
+      <div class="card shadow-sm border-0">
+        <img src="img/3.jpg" alt="Intel 8086 processor, 1978" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">1978 — 8086 Processor</h5>
+          <p class="card-text">
+            Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.
+          </p>
+        </div>
+      </div>
+      <!-- 1985 -->
+      <div class="card shadow-sm border-0">
+        <img src="img/4.jpg" alt="Intel 386 processor, 1985" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">1985 — 386 Processor</h5>
+          <p class="card-text">
+            Intel introduces the 386 with 32-bit architecture, enabling major leaps in performance and multitasking.
+          </p>
+        </div>
+      </div>
+      <!-- 2006 -->
+      <div class="card shadow-sm border-0">
+        <img src="https://placehold.co/600x350" alt="Peak GHG Emissions, 2006 placeholder" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">2006 — Peak GHG Emissions</h5>
+          <p class="card-text">
+            Intel reaches peak operational emissions and accelerates investments in abatement and renewables.
+          </p>
+        </div>
+      </div>
+      <!-- 2020 -->
+      <div class="card shadow-sm border-0">
+        <img src="https://placehold.co/600x350" alt="RISE strategy, 2020 placeholder" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">2020 — RISE Strategy</h5>
+          <p class="card-text">
+            Intel launches its RISE strategy, focusing on responsibility, inclusivity, sustainability, and enabling.
+          </p>
+        </div>
+      </div>
+      <!-- 2022 -->
+      <div class="card shadow-sm border-0">
+        <img src="https://placehold.co/600x350" alt="Net-Zero commitment, 2022 placeholder" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">2022 — Net-Zero by 2040</h5>
+          <p class="card-text">
+            Commitment to achieve net-zero greenhouse gas emissions (Scope 1 &amp; 2) across global operations by 2040.
+          </p>
+        </div>
+      </div>
+      <!-- 2023 -->
+      <div class="card shadow-sm border-0">
+        <img src="https://placehold.co/600x350" alt="Renewable electricity, 2023 placeholder" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">2023 — 99% Renewable Electricity</h5>
+          <p class="card-text">
+            Intel reaches 99% renewable electricity usage worldwide, cutting emissions and advancing long-term goals.
+          </p>
+        </div>
+      </div>
+      <!-- 2024 -->
+      <div class="card shadow-sm border-0">
+        <img src="https://placehold.co/600x350" alt="Sustainability summit, 2024 placeholder" />
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">2024 — Sustainability Summit</h5>
+          <p class="card-text">
+            Intel hosts its first Sustainability Summit, uniting leaders to collaborate on greener manufacturing.
+          </p>
         </div>
       </div>
     </div>
-    <!-- Card 2 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0">
-        <img src="img/2.jpg" class="card-img-top img-fluid" alt="Intel 4004 Microprocessor">
-        <div class="card-body">
-          <h5 class="card-title text-primary fw-bold">1971 - First Microprocessor</h5>
-          <p class="card-text">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution.</p>
+    <p class="note text-center mt-3">Scroll horizontally to view more →</p>
+  </section>
+
+  <!-- Three-column features (unchanged) -->
+  <section class="container my-5" id="features">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card h-100 text-center p-4 shadow-sm border-0">
+          <h2 class="h5 text-primary mb-3"><i class="bi bi-bar-chart-line me-2"></i>Global Impact</h2>
+          <p>Intel drives positive change worldwide, from renewable energy to sustainable manufacturing.</p>
+          <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card h-100 text-center p-4 shadow-sm border-0">
+          <h2 class="h5 text-primary mb-3"><i class="bi bi-people-fill me-2"></i>Inclusive Teams</h2>
+          <p>Intel builds inclusive, diverse workplaces to innovate with empathy and responsibility.</p>
+          <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card h-100 text-center p-4 shadow-sm border-0">
+          <h2 class="h5 text-primary mb-3"><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h2>
+          <p>Intel pioneers next-gen technology while maintaining strong environmental commitments.</p>
+          <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
         </div>
       </div>
     </div>
-    <!-- Card 3 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0">
-        <img src="img/3.jpg" class="card-img-top img-fluid" alt="Intel 8086 Processor">
-        <div class="card-body">
-          <h5 class="card-title text-primary fw-bold">1978 - 8086 Processor</h5>
-          <p class="card-text">Launch of the 8086 processor, establishing the x86 architecture that drives modern PCs and servers.</p>
+  </section>
+
+  <!-- Newsletter (unchanged) -->
+  <section id="newsletter" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 text-primary fw-bold">
+        <i class="bi bi-envelope me-2"></i>Subscribe to our Sustainability Newsletter
+      </h2>
+      <form class="needs-validation mx-auto" style="max-width: 500px" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input id="name" name="name" type="text" class="form-control" placeholder="Your Name" required />
+          <div class="invalid-feedback">Please enter your name.</div>
         </div>
-      </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input id="email" name="email" type="email" class="form-control" placeholder="name@example.com" required />
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Subscribe</button>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Three-Column Section -->
-<section class="container my-5">
-  <div class="row g-4">
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-bar-chart-line me-2"></i>Global Impact</h2>
-        <p>Intel drives positive change worldwide, from renewable energy to sustainable manufacturing.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-people-fill me-2"></i>Inclusive Teams</h2>
-        <p>Intel builds inclusive, diverse workplaces to innovate with empathy and responsibility.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-12">
-      <div class="card h-100 text-center p-4 shadow-sm border-0">
-        <h2 class="h5 text-primary mb-3"><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h2>
-        <p>Intel pioneers next-gen technology while maintaining strong environmental commitments.</p>
-        <a href="#" class="btn btn-primary mt-3 w-100">Learn More</a>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3 mt-5" role="contentinfo">
+    <p class="mb-0">&copy; <span id="year"></span> Intel Corporation. All rights reserved.</p>
+  </footer>
 
-<!-- Newsletter Form -->
-<section class="bg-light py-5">
-  <div class="container">
-    <h2 class="text-center mb-4 text-primary fw-bold">
-      <i class="bi bi-envelope me-2"></i>Subscribe to our Sustainability Newsletter
-    </h2>
-    <form class="needs-validation mx-auto" style="max-width: 500px;" novalidate>
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-        <div class="invalid-feedback">Please enter your name.</div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
-        <div class="invalid-feedback">Please enter a valid email address.</div>
-      </div>
-      <button class="btn btn-primary w-100" type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<!-- Footer -->
-<footer class="bg-primary text-white text-center py-3 mt-5">
-  <p class="mb-0">&copy; 2025 Intel Corporation. All rights reserved.</p>
-</footer>
+    // RTL helpers
+    const rtlLangs = ['ar','he','fa','ur'];
+    const bsLink = document.getElementById('bootstrap-css');
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      bsLink.href = dir === 'rtl'
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+      localStorage.setItem('dir', dir); // persist for next visit
+    }
 
-<!-- Automatic RTL Detection -->
-<script>
-  function setDirection(dir) {
-    document.documentElement.setAttribute("dir", dir);
-    const bootstrapCSS = document.getElementById("bootstrap-css");
-    bootstrapCSS.href = dir === "rtl" 
-      ? "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" 
-      : "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
-  }
+    // 1) Use saved preference if present
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir) {
+      setDir(savedDir);
+    } else {
+      // 2) Else detect browser/page language
+      const lang = (document.documentElement.lang || navigator.language || '').slice(0,2).toLowerCase();
+      setDir(rtlLangs.includes(lang) ? 'rtl' : 'ltr');
+    }
 
-  // Detect browser language and switch to RTL if Arabic
-  const userLang = navigator.language || navigator.userLanguage;
-  if (userLang && userLang.startsWith("ar")) {
-    setDirection("rtl");
-  } else {
-    setDirection("ltr");
-  }
-</script>
+    // Manual toggle (for testing)
+    document.getElementById('toggle-rtl').addEventListener('click', () => {
+      setDir(document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
+    });
 
+    // Bootstrap form validation (unchanged)
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', evt => {
+          if (!form.checkValidity()) { evt.preventDefault(); evt.stopPropagation(); }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
 </body>
 </html>
