@@ -176,10 +176,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // RTL toggle: now switches both layout & text direction
+  // RTL toggle: manual
   function toggleRTL() {
     const html = document.documentElement;
     html.setAttribute('dir', html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
+  }
+
+  // Auto-detect language for RTL
+  const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+  const pageLang = document.documentElement.lang || navigator.language.slice(0, 2);
+  if (rtlLanguages.includes(pageLang)) {
+    document.documentElement.setAttribute('dir', 'rtl');
   }
 
   // Bootstrap form validation
