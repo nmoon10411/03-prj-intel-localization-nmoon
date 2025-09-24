@@ -1,147 +1,74 @@
-/* General Reset */
+/* Base */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
-  padding: 0;
-  background: #f8f9fa;
   color: #212529;
+  background: #f8f9fa;
 }
 
-/* Hero Section */
+/* Header */
 header {
-  background: #0071C5;
-  color: white;
+  background: #0071C5; /* keep your Intel blue */
+  color: #fff;
   text-align: center;
   padding: 40px 20px;
 }
-header img {
-  width: 120px;
-  margin-bottom: 10px;
-}
-header h1 {
-  margin: 10px 0;
-  font-size: 2rem;
-  font-weight: 600;
-}
-header p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-}
 
-/* Timeline Section */
-section.container .card {
-  border: none;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-section.container .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-section.container .card img {
-  border-radius: 8px 8px 0 0;
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Three-Column Section */
-#features .card {
-  border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#features .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-#features h2 {
-  font-weight: 600;
-}
-
-/* Newsletter Form */
-#newsletter form {
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  background: #ffffff;
-  padding: 20px;
-}
-#newsletter h2 {
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-/* Footer */
-footer {
-  background: #0071C5;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
-}
-
-/* Accessibility: Focus Styles */
-:focus-visible {
-  outline: 3px solid #0d6efd;
-  outline-offset: 2px;
-}
-
-/* RTL Support */
-[dir="rtl"] header,
-[dir="rtl"] body {
-  text-align: right;
-}
-
-/* Buttons */
-.btn {
-  transition: all 0.2s ease;
-}
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* Responsive Tweaks */
-@media (max-width: 767px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-  header p {
-    font-size: 1rem;
-  }
-  section.container .card img {
-    height: 150px;
-  }
-}
-
-/* Print Styling */
-@media print {
-  header, footer, .btn, select, button {
-    display: none !important;
-  }
-  body {
-    background: white;
-    color: black;
-  }
-}
-
-
-.timeline-scroll {
+/* Horizontal Timeline (same spirit as your Project 2) */
+.timeline {
   display: flex;
-  flex-wrap: nowrap;
+  gap: 15px;
+  padding: 20px 40px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  gap: 15px;
-  padding-bottom: 10px;
 }
-
-.timeline-scroll .card {
-  flex: 0 0 auto;
+.timeline .card {
+  flex: 0 0 260px;            /* card width like your original */
+  border-radius: 8px;
   scroll-snap-align: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.timeline .card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+.timeline .card img {
+  width: 100%;
+  height: 150px;              /* image height like your original */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
 }
 
-.timeline-scroll .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+/* Note under timeline */
+.note { font-size: .95rem; color: #6c757d; }
+
+/* Three-column cards */
+#features .card { border: none; transition: transform .3s ease, box-shadow .3s ease; }
+#features .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+
+/* Newsletter form */
+#newsletter form {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: #fff;
+  padding: 20px;
+}
+
+/* Footer */
+footer { background: #0071C5; color: #fff; }
+
+/* Accessibility */
+:focus-visible { outline: 3px solid #0d6efd; outline-offset: 2px; }
+
+/* RTL tweaks: keep text right-aligned in RTL, keep scroll natural */
+[dir="rtl"] .timeline { direction: rtl; }
+[dir="rtl"] .card-body,
+[dir="rtl"] h2, [dir="rtl"] h5, [dir="rtl"] p, [dir="rtl"] label { text-align: right; }
+
+/* Mobile tweaks */
+@media (max-width: 767px) {
+  header { padding: 28px 16px; }
+  .timeline { padding: 16px; }
 }
