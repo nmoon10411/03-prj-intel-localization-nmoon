@@ -1,38 +1,24 @@
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
+const htmlEl = document.getElementById('htmlRoot');
+const toggleBtn = document.getElementById('toggleDirBtn');
+const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
 
-// RTL Toggle
-const bs = document.getElementById('bs-css');
-function setDir(dir) {
-  document.documentElement.dir = dir;
-  bs.href = dir === 'rtl'
-    ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
-    : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
-  localStorage.setItem('dir', dir);
-}
-setDir(localStorage.getItem('dir') || 'ltr');
-
-// Controls
-document.getElementById('toggleDir').addEventListener('click', () => {
-  setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-});
-document.getElementById('lang').addEventListener('change', (e) => {
-  setDir(e.target.value === 'ar' ? 'rtl' : 'ltr');
+// Toggle button for RTL/LTR
+toggleBtn.addEventListener('click', () => {
+  const current = htmlEl.getAttribute('dir');
+  const newDir = current === 'rtl' ? 'ltr' : 'rtl';
+  htmlEl.setAttribute('dir', newDir);
+  localStorage.setItem('dir', newDir);
 });
 
-// Form Handling
-const form = document.getElementById('subForm');
-const msg  = document.getElementById('formMsg');
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  if (!form.checkValidity()) {
-    form.classList.add('was-validated');
-    msg.textContent = 'Please fix the errors above.';
-    msg.className = 'text-danger';
-    return;
+// Auto-detect based on browser language
+(function() {
+  const savedDir = localStorage.getItem('dir');
+  if (savedDir) {
+    htmlEl.setAttribute('dir', savedDir);
+  } else {
+    const userLang = navigator.language.slice(0, 2).toLowerCase();
+    if (rtlLanguages.includes(userLang)) {
+      htmlEl.setAttribute('dir', 'rtl');
+    }
   }
-  msg.textContent = 'Thanks! You’re subscribed.';
-  msg.className = 'text-success';
-  form.reset();
-  form.classList.remove('was-validated');
-});
+})();
