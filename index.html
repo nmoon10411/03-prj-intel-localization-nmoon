@@ -181,31 +181,26 @@
     }
 
     function setDir(dir) {
-      // 1) Set document direction (this triggers your CSS `[dir="rtl"] .timeline { flex-direction: row-reverse; }`)
-      document.documentElement.setAttribute('dir', dir);
+  document.documentElement.setAttribute('dir', dir);
+  bsLink.href = dir === 'rtl'
+    ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
+    : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
 
-      // 2) Swap Bootstrap CSS so spacing/margins flip correctly
-      bsLink.href = dir === 'rtl'
-        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
-        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+  if (arrow) {
+    arrow.textContent = dir === 'rtl'
+      ? 'قم بالتمرير أفقيًا لعرض المزيد ←'
+      : 'Scroll horizontally to view more →';
+  }
 
-      // 3) Update the helper arrow text
-      if (arrow) {
-        arrow.textContent = dir === 'rtl'
-          ? 'قم بالتمرير أفقيًا لعرض المزيد ←'
-          : 'Scroll horizontally to view more →';
-      }
-
-      // 4) Move scroll start to the correct side (no DOM reordering here)
-      if (timeline) {
-        requestAnimationFrame(() => {
-          timeline.scrollTo({
-            left: dir === 'rtl' ? timeline.scrollWidth : 0,
-            behavior: 'auto'
-          });
-        });
-      }
-    }
+  if (timeline) {
+    requestAnimationFrame(() => {
+      timeline.scrollTo({
+        left: dir === 'rtl' ? timeline.scrollWidth : 0,
+        behavior: 'auto'
+      });
+    });
+  }
+}
 
     // Decide direction on load: prefer lang attr; fallback to browser; then content sniff
     function autoDetectAndApplyDir() {
