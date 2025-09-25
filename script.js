@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dir === 'rtl') cards.reverse();
       cards.forEach(c => timeline.appendChild(c));
 
-      requestAnimationFrame(() => {
-        timeline.scrollLeft = dir === 'rtl'
-          ? timeline.scrollWidth
-          : 0;
-      });
+      if (dir === 'rtl') {
+        timeline.scrollLeft = timeline.scrollWidth;  // Start at rightmost only once
+      } else {
+        timeline.scrollLeft = 0;                     // Start at leftmost only once
+      }
     }
   }
 
