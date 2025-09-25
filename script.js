@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById('toggle-rtl');
 
   let lastDir = null; // Track previous direction
+  let firstLoad = true; // FLAG for initial load
 
   function setDir(dir) {
     document.documentElement.setAttribute('dir', dir);
@@ -23,13 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dir === 'rtl') cards.reverse();
       cards.forEach(c => timeline.appendChild(c));
 
-      // Set scroll only when direction actually changes
-      if (dir !== lastDir) {
+      // Set scroll only on initial load
+      if (firstLoad) {
         if (dir === 'rtl') {
           timeline.scrollLeft = timeline.scrollWidth;
         } else {
           timeline.scrollLeft = 0;
         }
+        firstLoad = false; // After first run, don't reset scroll
       }
     }
 
