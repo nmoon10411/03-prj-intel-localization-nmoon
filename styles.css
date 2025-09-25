@@ -1,5 +1,10 @@
 body { font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; margin: 0; background: #f8f9fa; }
-header { background: #0071C5; color: white; text-align: center; padding: 40px 20px; }
+header {
+  background: linear-gradient(90deg, #003c7e, #0071c5);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
 header img { width: 120px; margin-bottom: 10px; }
 header h1 { font-size: 2rem; margin: 10px 0; }
 header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
