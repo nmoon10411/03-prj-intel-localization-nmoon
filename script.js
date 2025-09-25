@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const arrow = document.getElementById('arrow-text');
   const toggle = document.getElementById('toggle-rtl');
 
-  let lastDir = null; // remember last direction
+  let lastDir = null;
 
   function setDir(dir) {
-    if (dir === lastDir) return; // don't reset if direction hasn't changed
+    if (dir === lastDir) return; // no changes if direction same
     lastDir = dir;
 
     document.documentElement.setAttribute('dir', dir);
@@ -20,20 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
       ? 'قم بالتمرير أفقيًا لعرض المزيد ←'
       : 'Scroll horizontally to view more →';
 
-    // Flip only once when direction changes
+    // Just flip direction visually
     if (timeline) {
-      const cards = Array.from(timeline.children);
+      timeline.style.direction = dir;
       if (dir === 'rtl') {
-        timeline.style.direction = 'rtl';   // CSS handles flow
-        cards.reverse().forEach(c => timeline.appendChild(c)); // one-time reverse
-      } else {
-        timeline.style.direction = 'ltr';
-        cards.reverse().forEach(c => timeline.appendChild(c)); // reverse back to normal
+        // Set scroll to rightmost only once
+        requestAnimationFrame(() => timeline.scrollLeft = timeline.scrollWidth);
       }
     }
   }
 
-  // Detect browser language
+  // Detect language
   const lang = (document.documentElement.lang || navigator.language || '').slice(0,2).toLowerCase();
   setDir(rtlLangs.includes(lang) ? 'rtl' : 'ltr');
 
