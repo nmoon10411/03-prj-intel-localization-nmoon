@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const arrow = document.getElementById('arrow-text');
   const toggle = document.getElementById('toggle-rtl');
 
+  let lastDir = null; // Track previous direction
+
   function setDir(dir) {
     document.documentElement.setAttribute('dir', dir);
     bsLink.href = dir === 'rtl'
@@ -21,12 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dir === 'rtl') cards.reverse();
       cards.forEach(c => timeline.appendChild(c));
 
-      if (dir === 'rtl') {
-        timeline.scrollLeft = timeline.scrollWidth;  // Start at rightmost only once
-      } else {
-        timeline.scrollLeft = 0;                     // Start at leftmost only once
+      // Set scroll only when direction actually changes
+      if (dir !== lastDir) {
+        if (dir === 'rtl') {
+          timeline.scrollLeft = timeline.scrollWidth;
+        } else {
+          timeline.scrollLeft = 0;
+        }
       }
     }
+
+    lastDir = dir; // update
   }
 
   // Auto-detect language
