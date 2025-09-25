@@ -1,47 +1,20 @@
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  background: #f8f9fa;
-}
-
-/* Header */
+body { font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; margin: 0; background: #f8f9fa; }
 header { background: #0071C5; color: white; text-align: center; padding: 40px 20px; }
 header img { width: 120px; margin-bottom: 10px; }
 header h1 { font-size: 2rem; margin: 10px 0; }
 header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
 
-/* Timeline */
-.timeline {
-  display: flex;
-  gap: 15px;
-  padding: 20px 40px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-.timeline .card {
-  flex: 0 0 260px;
-  border-radius: 8px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+.timeline { display: flex; gap: 15px; padding: 20px 40px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.timeline .card { flex: 0 0 260px; border-radius: 8px; overflow: hidden; scroll-snap-align: start; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .timeline .card img { width: 100%; height: 150px; object-fit: cover; }
 .timeline .card:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-/* RTL support */
-[dir="rtl"] .timeline {
-  flex-direction: row-reverse;
-}
+[dir="rtl"] .timeline { flex-direction: row-reverse; }
 [dir="rtl"] .card-body { text-align: right; }
 
-/* Features */
 #features .card { border: none; transition: transform 0.3s ease; }
 #features .card:hover { transform: translateY(-5px); }
 
-/* Newsletter */
 #newsletter form { border: 1px solid #dee2e6; border-radius: 8px; background: #fff; padding: 20px; }
 
-/* Footer */
 footer { background: #0071C5; color: #fff; padding: 20px; margin-top: 50px; text-align: center; }
