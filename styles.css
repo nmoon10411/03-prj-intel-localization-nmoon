@@ -31,7 +31,9 @@ header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
 .timeline .card:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
 /* RTL support */
-[dir="rtl"] .timeline { direction: rtl; }
+[dir="rtl"] .timeline {
+  flex-direction: row-reverse;
+}
 [dir="rtl"] .card-body { text-align: right; }
 
 /* Features */
