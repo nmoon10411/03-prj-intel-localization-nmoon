@@ -47,11 +47,30 @@
 
   <!-- Features -->
   <section class="container my-5" id="features">
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6 col-12"><div class="card h-100 text-center p-4 shadow-sm border-0"><h2 class="h5 text-primary mb-3"><i class="bi bi-bar-chart-line me-2"></i>Global Impact</h2><p>Intel drives positive change worldwide, from renewable energy to sustainable manufacturing.</p><a href="#" class="btn btn-primary mt-3 w-100">Learn More</a></div></div>
-      <div class="col-lg-4 col-md-6 col-12"><div class="card h-100 text-center p-4 shadow-sm border-0"><h2 class="h5 text-primary mb-3"><i class="bi bi-people-fill me-2"></i>Inclusive Teams</h2><p>Intel builds inclusive, diverse workplaces to innovate with empathy and responsibility.</p><a href="#" class="btn btn-primary mt-3 w-100">Learn More</a></div></div>
-      <div class="col-lg-4 col-md-6 col-12"><div class="card h-100 text-center p-4 shadow-sm border-0"><h2 class="h5 text-primary mb-3"><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h2><p>Intel pioneers next-gen technology while maintaining strong environmental commitments.</p><a href="#" class="btn btn-primary mt-3 w-100">Learn More</a></div></div>
+      <div class="col-lg-4 col-md-6 col-12">
+    <div class="card h-100 text-center p-4 shadow-sm border-0">
+      <h2 class="h5 text-primary mb-3"><i class="bi bi-bar-chart-line me-2"></i>Global Impact</h2>
+      <p>Intel drives positive change worldwide, from renewable energy to sustainable manufacturing.</p>
+      <a href="#" class="btn btn-primary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Learn More</a>
     </div>
+  </div>
+  
+  <div class="col-lg-4 col-md-6 col-12">
+    <div class="card h-100 text-center p-4 shadow-sm border-0">
+      <h2 class="h5 text-primary mb-3"><i class="bi bi-people-fill me-2"></i>Inclusive Teams</h2>
+      <p>Intel builds inclusive, diverse workplaces to innovate with empathy and responsibility.</p>
+      <a href="#" class="btn btn-primary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Learn More</a>
+    </div>
+  </div>
+  
+  <div class="col-lg-4 col-md-6 col-12">
+    <div class="card h-100 text-center p-4 shadow-sm border-0">
+      <h2 class="h5 text-primary mb-3"><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h2>
+      <p>Intel pioneers next-gen technology while maintaining strong environmental commitments.</p>
+      <a href="#" class="btn btn-primary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Learn More</a>
+    </div>
+  </div>
+
   </section>
 
   <!-- Newsletter -->
@@ -73,5 +92,24 @@
 
   <!-- JS -->
   <script src="script.js"></script>
+  <!-- Modal -->
+  <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="learnMoreModalLabel">More Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel continues to innovate in sustainability, inclusive teams, and global impact initiatives. 
+          More details about each section can be added here later if needed.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
