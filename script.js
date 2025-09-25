@@ -5,40 +5,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const arrow = document.getElementById('arrow-text');
   const toggle = document.getElementById('toggle-rtl');
 
-  let lastDir = null; // Track previous direction
-  let firstLoad = true; // FLAG for initial load
+  let lastDir = null; // remember last direction
 
   function setDir(dir) {
+    if (dir === lastDir) return; // don't reset if direction hasn't changed
+    lastDir = dir;
+
     document.documentElement.setAttribute('dir', dir);
     bsLink.href = dir === 'rtl'
       ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
       : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+
     arrow.textContent = dir === 'rtl'
       ? 'قم بالتمرير أفقيًا لعرض المزيد ←'
       : 'Scroll horizontally to view more →';
 
-    // Reverse timeline order for RTL
+    // Flip only once when direction changes
     if (timeline) {
       const cards = Array.from(timeline.children);
-      timeline.innerHTML = "";
-      if (dir === 'rtl') cards.reverse();
-      cards.forEach(c => timeline.appendChild(c));
-
-      // Set scroll only on initial load
-      if (firstLoad) {
-        if (dir === 'rtl') {
-          timeline.scrollLeft = timeline.scrollWidth;
-        } else {
-          timeline.scrollLeft = 0;
-        }
-        firstLoad = false; // After first run, don't reset scroll
+      if (dir === 'rtl') {
+        timeline.style.direction = 'rtl';   // CSS handles flow
+        cards.reverse().forEach(c => timeline.appendChild(c)); // one-time reverse
+      } else {
+        timeline.style.direction = 'ltr';
+        cards.reverse().forEach(c => timeline.appendChild(c)); // reverse back to normal
       }
     }
-
-    lastDir = dir; // update
   }
 
-  // Auto-detect language
+  // Detect browser language
   const lang = (document.documentElement.lang || navigator.language || '').slice(0,2).toLowerCase();
   setDir(rtlLangs.includes(lang) ? 'rtl' : 'ltr');
 
