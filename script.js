@@ -1,38 +1,44 @@
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  const rtlLangs = ['ar','he','fa','ur'];
+  const bsLink = document.getElementById('bootstrap-css');
+  const timeline = document.getElementById('timeline');
+  const arrow = document.getElementById('arrow-text');
+  const toggle = document.getElementById('toggle-rtl');
 
-// RTL Toggle
-const bs = document.getElementById('bs-css');
-function setDir(dir) {
-  document.documentElement.dir = dir;
-  bs.href = dir === 'rtl'
-    ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
-    : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
-  localStorage.setItem('dir', dir);
-}
-setDir(localStorage.getItem('dir') || 'ltr');
+  function setDir(dir) {
+    document.documentElement.setAttribute('dir', dir);
+    bsLink.href = dir === 'rtl'
+      ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
+      : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+    arrow.textContent = dir === 'rtl'
+      ? 'قم بالتمرير أفقيًا لعرض المزيد ←'
+      : 'Scroll horizontally to view more →';
 
-// Controls
-document.getElementById('toggleDir').addEventListener('click', () => {
-  setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-});
-document.getElementById('lang').addEventListener('change', (e) => {
-  setDir(e.target.value === 'ar' ? 'rtl' : 'ltr');
-});
+    // Reverse timeline order for RTL
+    if (timeline) {
+      const cards = Array.from(timeline.children);
+      timeline.innerHTML = "";
+      if (dir === 'rtl') cards.reverse();
+      cards.forEach(c => timeline.appendChild(c));
 
-// Form Handling
-const form = document.getElementById('subForm');
-const msg  = document.getElementById('formMsg');
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  if (!form.checkValidity()) {
-    form.classList.add('was-validated');
-    msg.textContent = 'Please fix the errors above.';
-    msg.className = 'text-danger';
-    return;
+      requestAnimationFrame(() => {
+        timeline.scrollLeft = dir === 'rtl'
+          ? timeline.scrollWidth
+          : 0;
+      });
+    }
   }
-  msg.textContent = 'Thanks! You’re subscribed.';
-  msg.className = 'text-success';
-  form.reset();
-  form.classList.remove('was-validated');
+
+  // Auto-detect language
+  const lang = (document.documentElement.lang || navigator.language || '').slice(0,2).toLowerCase();
+  setDir(rtlLangs.includes(lang) ? 'rtl' : 'ltr');
+
+  // Manual toggle
+  toggle.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+    setDir(cur);
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
 });
